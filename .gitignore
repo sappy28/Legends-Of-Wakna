@@ -22,6 +22,17 @@ ExportedObj/
 *.pidb
 *.booproj
 *.svd
+# Visual Studio 2015 user specific files
+.vs/
+
+# Visual Studio 2015 database file
+*.VC.db
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
 
 
 # Unity3D generated meta files
