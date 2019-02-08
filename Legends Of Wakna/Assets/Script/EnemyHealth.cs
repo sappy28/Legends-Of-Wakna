@@ -28,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		GameManager.instance.RegisterEnemy(this);
 		rigidbody = GetComponent<Rigidbody>();
 		audio = GetComponent<AudioSource>();
 		anim = GetComponent<Animator>();
@@ -42,8 +43,7 @@ public class EnemyHealth : MonoBehaviour
     void Update()
     {
 		timer += Time.deltaTime;
-
-		if(dissapearEnemy)
+		if (dissapearEnemy)
 		{
 			transform.Translate(-Vector3.up * dissapearTime * Time.deltaTime);
 		}
@@ -51,7 +51,7 @@ public class EnemyHealth : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if(timer >= timeBetweenHit && !GameManager.instance.GameOver)
+		if (timer >= timeBetweenHit && !GameManager.instance.GameOver)
 		{
 			if(other.tag == "PlayerWeapon")
 			{
@@ -78,6 +78,7 @@ public class EnemyHealth : MonoBehaviour
 	}
 	void killEnemy()
 	{
+		GameManager.instance.KilledEnemy(this);
 		capsuleCollider.enabled = false;
 		nav.enabled = false;
 		anim.SetTrigger("EnemyDie");

@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 
 public class PlayerHealth : MonoBehaviour
 {
-	[SerializeField] private int startingHealth = 100;
+	[SerializeField] private int startingHealth = 200;
 	[SerializeField] float timeSinceLastHit = 2f;
 	[SerializeField] Slider healthSlider;
 
@@ -17,6 +17,26 @@ public class PlayerHealth : MonoBehaviour
 	private AudioSource audio;
 	private ParticleSystem humanBlood;
 
+	public int CurrentHealth
+	{
+		get { return currentHealth; }
+		set
+		{
+			if (currentHealth < 0)
+				currentHealth = 0;
+			else
+				currentHealth = value;
+		}
+	}
+	public void powerUpHealth()
+	{
+		if (currentHealth <= 150)
+			currentHealth += 50;
+		else if (currentHealth < startingHealth)
+			currentHealth = startingHealth;
+
+		healthSlider.value = currentHealth;
+	}
 	private void Awake()
 	{
 		Assert.IsNotNull(healthSlider);

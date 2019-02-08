@@ -2,22 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Assertions;
+
 
 public class EnemyMove : MonoBehaviour
 {
-	[SerializeField] Transform player;
+	private Transform player;
 	private NavMeshAgent navMeshAgent;
 	private Animator anim;
 	private EnemyHealth enemyHealth;
 
-	private void Awake()
-	{
-		Assert.IsNotNull(player);
-	}
 	// Start is called before the first frame update
 	void Start()
     {
+		player = GameManager.instance.Player.transform;
 		enemyHealth = GetComponent<EnemyHealth>();
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();

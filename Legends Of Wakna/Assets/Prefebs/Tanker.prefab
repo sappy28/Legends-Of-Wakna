@@ -376,7 +376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070b6c5209ab2514aa52db8a4220638f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &7928599737234253740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd9650cdd8ded84ab8d166bb8694b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 20
+  startingHealth: 30
   timeBetweenHit: 0.5
   dissapearTime: 2
 --- !u!1 &7928599737283242689
